@@ -81,3 +81,66 @@ Route::get('/admin', function () {
     return view('admin.index');
 });
 ```
+
+## Blade Template
+
+Blade Template is a library that help processing view to show on web browser together with HTML. It enable view to insert php code and other logic inside HTML file. Blade Template has its own syntax below:
+
+```php
+...
+<body class="antialiased">
+    <?php
+    $user = "Chitsanupong";
+    $fruits = ['Apple', 'Banana', 'Orange'];
+
+    ?>
+    <div class="flex flex-col justify-center items-center">
+        <h2>About Me</h2>
+        <div class="w-20">
+            @if($user == "Chitsanupong")
+            <p>Hello {{$user}}</p>
+            @else
+            <p>Hello Laravel</p>
+            @endif
+
+            @foreach($fruits as $fruit)
+            <p>{{$fruit}}</p>
+            @endforeach
+        </div>
+    </div>
+</body>
+
+```
+
+## Controller
+
+The central component of the architectural pattern which manage the data and logic of the application.
+
+```
+# create a new controller
+php artisan make:controller MemberController
+```
+
+```php
+// AboutController.php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class AboutController extends Controller
+{
+    function index()
+    {
+        return view('about');
+    }
+}
+
+```
+
+```php
+// web.php
+Route::get('/about', [AboutController::class, 'index']);
+
+```
