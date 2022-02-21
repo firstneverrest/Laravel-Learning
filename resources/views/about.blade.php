@@ -303,11 +303,23 @@
 </head>
 
 <body class="antialiased">
+    <?php
+    $user = "Chitsanupong";
+    $fruits = ['Apple', 'Banana', 'Orange'];
+
+    ?>
     <div class="flex flex-col justify-center items-center">
         <h2>About Me</h2>
         <div class="w-20">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas quos mollitia odit ullam nulla quod fugiat cumque magnam deleniti exercitationem. In, illum? Nihil dolore totam perferendis ea quaerat accusamus hic!</p>
+            @if($user == "Chitsanupong")
+            <p>Hello {{$user}}</p>
+            @else
+            <p>Hello Laravel</p>
+            @endif
 
+            @foreach($fruits as $fruit)
+            <p>{{$fruit}}</p>
+            @endforeach
         </div>
     </div>
 </body>
