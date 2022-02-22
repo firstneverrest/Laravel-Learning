@@ -16,7 +16,7 @@ use App\Http\Controllers\MemberController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
-Route::get('/about', [AboutController::class, 'index']);
+Route::get('/about/chitsanupong', [AboutController::class, 'index'])->name('about');
