@@ -310,17 +310,11 @@
     ?>
     <div class="flex flex-col justify-center items-center">
         <h2>About Me</h2>
-        <div class="w-20">
-            @if($user == "Chitsanupong")
-            <p>Hello {{$user}}</p>
-            @else
-            <p>Hello Laravel</p>
-            @endif
-
-            @foreach($fruits as $fruit)
-            <p>{{$fruit}}</p>
-            @endforeach
-        </div>
+        <section>
+            <p>Name: {{$name}}</p>
+            <p>Age: {{$age}}</p>
+            <p>Position: {{$position}}</p>
+        </section>
     </div>
 </body>
 

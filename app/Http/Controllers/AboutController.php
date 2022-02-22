@@ -8,6 +8,9 @@ class AboutController extends Controller
 {
     function index()
     {
-        return view('about');
+        $name = 'Chitsanupong';
+        $age = 21;
+        $position = 'front-end developer';
+        return view('about', compact('name', 'age', 'position'));
     }
 }

@@ -161,3 +161,40 @@ Route::get('/about/chitsanupong', [AboutController::class, 'index'])->name('abou
 <a href="{{route('about')}}">About</a> // go to /about/chitsanupong
 
 ```
+
+## Send data from controller to view
+
+### Send with Associated Array (Key-value pair array)
+
+```php
+// about.blade.php
+<section>
+    <p>Name: {{$name}}</p>
+    <p>Age: {{$age}}</p>
+    <p>Position: {{$position}}</p>
+</section>
+```
+
+```php
+// AboutController.php
+    function index()
+    {
+        $name = 'Chitsanupong';
+        $age = 21;
+        $position = 'front-end developer';
+        return view('about', ['name' => $name, 'age' => $age, 'position' => $position]);
+    }
+```
+
+### Send with Compact function
+
+```php
+// AboutController.php
+    function index()
+    {
+        $name = 'Chitsanupong';
+        $age = 21;
+        $position = 'front-end developer';
+        return view('about', compact('name','age','position'));
+    }
+```
