@@ -144,3 +144,20 @@ class AboutController extends Controller
 Route::get('/about', [AboutController::class, 'index']);
 
 ```
+
+## Url & Link
+
+Use url variable instead of string. It helps handling routes easier.
+
+```php
+// web.php
+// define new name to easily refer to the long route
+Route::get('/about/chitsanupong', [AboutController::class, 'index'])->name('about');
+
+```
+
+```php
+<a href="{{url('/')}}">Home</a>
+<a href="{{route('about')}}">About</a> // go to /about/chitsanupong
+
+```
