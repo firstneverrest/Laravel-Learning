@@ -11,12 +11,7 @@
 
 <body class="antialiased">
     <div class="flex flex-col justify-center items-center">
-        <h2>About Me</h2>
-        <section>
-            <p>Name: {{$name}}</p>
-            <p>Age: {{$age}}</p>
-            <p>Position: {{$position}}</p>
-        </section>
+        <h2>Welcome Admin</h2>
     </div>
 </body>
 
