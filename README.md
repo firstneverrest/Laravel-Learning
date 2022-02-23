@@ -186,7 +186,7 @@ Route::get('/about/chitsanupong', [AboutController::class, 'index'])->name('abou
     }
 ```
 
-### Send with Compact function
+### Send with compact()
 
 ```php
 // AboutController.php
@@ -197,4 +197,70 @@ Route::get('/about/chitsanupong', [AboutController::class, 'index'])->name('abou
         $position = 'front-end developer';
         return view('about', compact('name','age','position'));
     }
+```
+
+### Send with with()
+
+```php
+
+return view('about')->with('name', $name)->with('age', $age)->with('position', $position);
+```
+
+## Middleware
+
+Step 1: create middleware with this scaffold below.
+
+```
+php artisan make:middleware AuthAdmin
+```
+
+Step 2: write middleware code in handle function.
+
+```php
+// AuthAdmin.php
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+
+class AuthAdmin
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
+     * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
+     */
+    public function handle(Request $request, Closure $next)
+    {
+        if ($request->user == 'chitsanupong') {
+            return redirect(route('admin'));
+        }
+
+        // pass every request
+        return $next($request);
+    }
+}
+
+```
+
+Step 3: register the middleware in Kernel.php
+
+```php
+    protected $routeMiddleware = [
+        'auth' => \App\Http\Middleware\Authenticate::class,
+        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+        'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
+        'can' => \Illuminate\Auth\Middleware\Authorize::class,
+        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
+        'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
+        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        // write the new middleware here
+        'auth' => \App\Http\Middleware\AuthAdmin::class,
+    ];
 ```
