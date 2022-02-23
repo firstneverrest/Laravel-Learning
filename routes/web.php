@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MemberController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +17,7 @@ use App\Http\Controllers\MemberController;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
 Route::get('/about/chitsanupong', [AboutController::class, 'index'])->name('about');
+Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('auth');

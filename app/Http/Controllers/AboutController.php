@@ -11,6 +11,6 @@ class AboutController extends Controller
         $name = 'Chitsanupong';
         $age = 21;
         $position = 'front-end developer';
-        return view('about', compact('name', 'age', 'position'));
+        return view('about')->with('name', $name)->with('age', $age)->with('position', $position);
     }
 }
