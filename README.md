@@ -264,3 +264,34 @@ Step 3: register the middleware in Kernel.php
         'auth' => \App\Http\Middleware\AuthAdmin::class,
     ];
 ```
+
+## New libraries in Laravel 8
+
+### Laravel JetStream
+
+Laravel JetStream library to help authenticating user which is designed with TailwindCSS.
+
+-   profile and password changing system
+-   e-mail verification
+-   two-factor authentication
+-   generate password to restore user's account
+-   browser session - let you know how many devices that user login
+
+```
+# installation
+composer require laravel/jetstream
+```
+
+### LiveWire
+
+LiveWire is a full stack framework that help handling user interface together with blade.
+
+```php
+php artisan jetstream:install livewire
+```
+
+## Connect with Database
+
+1. Set .env file to connect with database in DB section.
+2. run `php artisan migrate` to create table in your database.
+3. After complete migrating, you could see the tables in the database.
