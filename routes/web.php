@@ -21,3 +21,7 @@ Route::get('/', function () {
 
 Route::get('/about/chitsanupong', [AboutController::class, 'index'])->name('about');
 Route::get('/admin', [AdminController::class, 'index'])->name('admin')->middleware('auth');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
