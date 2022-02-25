@@ -16,6 +16,9 @@
             <a href="{{url('/')}}">Home</a>
             <a href="{{route('about')}}">About</a>
             <a href="{{route('admin')}}">Admin</a>
+            <a href="{{url('/dashboard')}}">Dashboard</a>
+            <a href="{{url('/login')}}">Login</a>
+            <a href="{{url('/register')}}">Register</a>
         </nav>
     </div>
 </body>
