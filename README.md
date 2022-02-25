@@ -284,11 +284,23 @@ composer require laravel/jetstream
 
 ### LiveWire
 
-LiveWire is a full stack framework that help handling user interface together with blade.
+LiveWire is a full stack framework that help handling user interface together with blade. Inertia is another option.
 
-```php
-php artisan jetstream:install livewire
 ```
+# installation
+php artisan jetstream:install livewire
+
+# build & compiled
+npm install && npm run dev
+```
+
+**Run XAMPP or other web server before running laravel app**
+
+After install and run all commands above, your laravel app will change the user interface to LiveWire UI.
+
+### Inertia
+
+Inertia let you build modern single-page app by React, Vue and Svelte together with Laravel.
 
 ## Connect with Database
 
